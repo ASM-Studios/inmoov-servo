@@ -1,0 +1,25 @@
+{
+    "version": 2,
+    "configurePresets": [
+        {
+            "name": "rp2040",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/cmake-build-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_C_COMPILER": "/usr/bin/arm-none-eabi-gcc",
+                "CMAKE_CXX_COMPILER": "/usr/bin/arm-none-eabi-g++"
+            }
+        },
+        {
+            "name": "mega",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/cmake-build-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_C_COMPILER": "/usr/bin/avr-gcc",
+                "CMAKE_CXX_COMPILER": "/usr/bin/avr-g++"
+            }
+        }
+    ]
+}
