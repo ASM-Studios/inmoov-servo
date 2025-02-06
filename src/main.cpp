@@ -1,26 +1,19 @@
-#include "Arduino.h"
+#include <Arduino.h>
 #include "../include/Servo.hpp"
+#include "pins_arduino.h"
 
 __attribute__((constructor)) void initBoard() {
     init();
 }
 
-void loop(control::Servo& servo) {
-    while (true) {
-        for (float i = 0; i < 180; i += 0.1) {
-            servo.setAngle(i);
-            delay(1);
-        }
-        for (float i = 180; i > 0; i -= 0.1) {
-            servo.setAngle(i);
-            delay(1);
-        }
-    }
-}
-
 int main() {
-    control::Servo servo(13);
+    pinMode(LED_BUILTIN, OUTPUT);
+    control::Servo servo(control::Servo::models[0], 7, 0, 180);
 
-    loop(servo);
-    return 0;
+    while (true) {
+        servo.setAngle(0);
+        delay(1000);
+        servo.setAngle(200);
+        delay(1000);
+    }
 }
