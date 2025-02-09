@@ -1,4 +1,4 @@
-#include <Arduino.h>
+#include <stdio.h>
 #include "../include/Servo.hpp"
 
 namespace control {
@@ -7,14 +7,14 @@ namespace control {
     };
 
     void Servo::_writeAngle() {
-        int us = map(this->_angle, this->_model.physicalMinAngle, this->_model.physicalMaxAngle, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH);
-        this->_servo.writeMicroseconds(us);
+        //int us = map(this->_angle, this->_model.physicalMinAngle, this->_model.physicalMaxAngle, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH);
+        //this->_servo.writeMicroseconds(us);
     }
 
     Servo::Servo(Model model) : _pin(0), _model(model), _minAngle(model.physicalMinAngle), _maxAngle(model.physicalMaxAngle) {}
 
     Servo::Servo(Model model, uint8_t pin) : _pin(pin), _model(model), _minAngle(model.physicalMinAngle), _maxAngle(model.physicalMaxAngle) {
-        this->_servo.attach(pin);
+        //this->_servo.attach(pin);
     }
 
     Servo::Servo(Model model, uint8_t pin, int16_t minAngle, int16_t maxAngle) :
@@ -28,7 +28,7 @@ namespace control {
             if (this->_maxAngle > this->_model.physicalMaxAngle) {
                 this->_maxAngle = this->_model.physicalMaxAngle;
             }
-            this->_servo.attach(pin);
+            //this->_servo.attach(pin);
         }
 
     uint8_t Servo::getPin() const {
@@ -37,7 +37,7 @@ namespace control {
 
     void Servo::setPin(uint8_t pin) {
         this->_pin = pin;
-        this->_servo.attach(pin);
+        //this->_servo.attach(pin);
     }
 
     int16_t Servo::getMinAngle() const {
@@ -61,12 +61,12 @@ namespace control {
     }
 
     void Servo::setAngle(float angle) {
-        this->_angle = constrain(angle, this->_minAngle, this->_maxAngle);
+        //this->_angle = constrain(angle, this->_minAngle, this->_maxAngle);
         this->_writeAngle();
     }
 
     void Servo::forceSetAngle(float angle) {
-        this->_angle = constrain(angle, this->_model.physicalMinAngle, this->_model.physicalMaxAngle);
+        //this->_angle = constrain(angle, this->_model.physicalMinAngle, this->_model.physicalMaxAngle);
         this->_writeAngle();
     }
 

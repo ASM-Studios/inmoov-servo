@@ -5,21 +5,34 @@
 #include "Servo.hpp"
 
 namespace control {
-    template <unsigned int N>
+    template <unsigned int NoRoute>
     class Router {
     private:
         struct Route {
             String route;
-            Servo object;
+            Servo& object;
+            Route() = default;
         };
 
-        Route _routes[N];
+        Route _routes[NoRoute];
 
     public:
-        Router() = default;
-        Router(const Router& other) = delete;
+        Router() {
+
+        };
         ~Router() = default;
 
-        void defineRoute(String route, Servo& servo);
+        Servo& findRoute(String routeName) {
+            for (auto& route: this->_routes) {
+                if (route == routeName) {
+                    return route.objet;
+                }
+            }
+        }
+
+        void createRoute(String route, Servo& servo) {
+            Route set{route, servo};
+            this->_routes[0] = set;
+        }
     };
 }

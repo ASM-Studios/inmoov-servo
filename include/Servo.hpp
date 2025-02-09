@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Servo.h"
+#include <pico/stdio.h>
+#include <pico/stdlib.h>
 
 namespace control {
     class Servo {
@@ -23,7 +24,6 @@ namespace control {
         int16_t _maxAngle;
 
         float _angle;
-        ::Servo _servo;
 
         void _writeAngle();
 
