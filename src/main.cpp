@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <pico/assert.h>
 #include <pico/stdio.h>
 #include <pico/stdlib.h>
@@ -7,17 +8,13 @@
 int main() {
     stdio_init_all();
 
+    int angle = 0;
     bool isRunning = true;
-    control::Servo servo(MODEL_PDI_1109MG, 0);
-    control::Servo servo2(MODEL_SG90, 1);
+    control::Servo servo({0, 180}, 0);
 
     while (isRunning) {
-        servo.setAngle(0);
-        servo2.setAngle(0);
-        sleep_ms(1000);
-
-        servo.setAngle(180);
-        servo2.setAngle(180);
+        scanf("%d", &angle);
+        servo.setAngle(angle);
         sleep_ms(1000);
     }
 }

@@ -22,4 +22,7 @@ target_link_libraries(embed
     hardware_pwm hardware_gpio
 )
 
+pico_enable_stdio_usb(embed 1)
+pico_enable_stdio_uart(embed 0)
+
 pico_add_extra_outputs(embed)

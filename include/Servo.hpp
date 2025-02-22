@@ -10,15 +10,9 @@ namespace control {
     class Servo {
     public:
         struct Model {
-            const enum class Name {
-                SG90,
-                PDI_1109MG
-            } name;
             const int16_t physicalMinAngle;
             const int16_t physicalMaxAngle;
         };
-
-        static const Model models[];
 
     private:
         uint8_t _pin;
@@ -52,6 +46,3 @@ namespace control {
         void addAngle(float angle);
     };
 }
-
-#define MODEL_SG90      control::Servo::models[0]
-#define MODEL_PDI_1109MG    control::Servo::models[1]

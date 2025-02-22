@@ -7,11 +7,6 @@
 #include "utils.hpp"
 
 namespace control {
-    constexpr Servo::Model Servo::models[] = {
-        {Model::Name::SG90, 0, 180},
-        {Model::Name::PDI_1109MG, 0, 180}
-    };
-
     void Servo::_writeAngle() {
         uint16_t us = map(static_cast<float>(this->_angle), static_cast<float>(this->_minAngle), static_cast<float>(this->_maxAngle),
                 static_cast<float>(MIN_PULSE), static_cast<float>(MAX_PULSE));
