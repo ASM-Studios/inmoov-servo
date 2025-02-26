@@ -12,13 +12,13 @@
             }
         },
         {
-            "name": "mega",
+            "name": "rp2040_macos",
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/cmake-build-debug",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-                "CMAKE_C_COMPILER": "/usr/bin/avr-gcc",
-                "CMAKE_CXX_COMPILER": "/usr/bin/avr-g++"
+                "CMAKE_C_COMPILER": "/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/arm-none-eabi-gcc",
+                "CMAKE_CXX_COMPILER": "/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/arm-none-eabi-g++"
             }
         }
     ]
