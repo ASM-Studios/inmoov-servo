@@ -19,7 +19,7 @@ add_executable(embed
 
 target_link_libraries(embed
     pico_stdlib
-    hardware_pwm hardware_gpio hardware_uart
+    hardware_pwm hardware_gpio hardware_adc hardware_uart
 )
 
 pico_enable_stdio_usb(embed 1)
