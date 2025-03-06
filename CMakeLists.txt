@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.27.4)
 include(pico_sdk_import.cmake)
-project(embed C CXX)
+project(embed C CXX ASM)
 
 pico_sdk_init()
 
@@ -19,7 +19,7 @@ add_executable(embed
 
 target_link_libraries(embed
     pico_stdlib
-    hardware_pwm hardware_gpio
+    hardware_pwm hardware_gpio hardware_uart
 )
 
 pico_enable_stdio_usb(embed 1)
